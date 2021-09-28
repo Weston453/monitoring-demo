@@ -14,6 +14,18 @@ app.get('/', (req, res)=> {
     rollbar.info('Html was served successfully!')
 })
 
+//Student stuff --------------------------------------------------------------
+
+const studentArr = []
+
+app.post('/api/students', (req, res)=>{
+    const {name} = req.body
+    studentArr.push(name)
+
+    rollbar.log('Student successfully added!')
+    res.status(200).send(studentArr)
+})
+
 
 
 const port = process.env.PORT || 5656
